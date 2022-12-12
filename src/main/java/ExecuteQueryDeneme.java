@@ -1,10 +1,10 @@
 import java.sql.*;
 
 public class ExecuteQueryDeneme {
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        Class.forName("org.postgresql.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/jdbc","postgres","tatar1987");
-        Statement statement = connection.createStatement();
+    public static void main(String[] args) throws SQLException {
+
+        Connection connnection = JdbcUtils.connectToDb();
+        Statement statement =JdbcUtils.createStatement();
 
         //1. Örnek : Oluşturulmuş countries tablosunda region_id'si 1 olan country_name değerlerini çağırın
 
