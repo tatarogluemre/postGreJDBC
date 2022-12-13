@@ -2,12 +2,16 @@ import java.sql.*;
 
 public class CallableStatement01 {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        //1. Adım: Driver'a kaydol
+       /* //1. Adım: Driver'a kaydol
         Class.forName("org.postgresql.Driver");
         //2. Adım: Database'e bağlan
         Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/jdbc", "postgres", "tatar1987");
         //3.Adım: Statement oluştur.
         Statement statement = connection.createStatement();
+*/
+        Connection connection = JdbcUtils.connectToDb("localhost","jdbc","postgres","tatar1987");
+        Statement statement = JdbcUtils.createStatement();
+
 
         /*
 

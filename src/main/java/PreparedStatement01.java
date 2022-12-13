@@ -53,6 +53,23 @@ public class PreparedStatement01 {
             System.out.println(rst2.getInt(1) + "---" + rst2.getString(2) + "---" + rst2.getInt(3));
 
         }
+
+        //2. Örnek: Prepared statement kullanarak company adı APPLE olan number_of_employees değerini 88888 olarak güncelleyin.
+
+        String st3 = "UPDATE companies SET number_of_employees = ? WHERE company =?";
+        PreparedStatement prd3 = connection.prepareStatement(st3);
+        prd3.setInt(1,8888);
+        prd3.setString(2,"APPLE");
+        int guncellenenSatir = prd3.executeUpdate();
+        System.out.println("guncellenenSatir = " + guncellenenSatir);
+
+        String stt3 = "SELECT * FROM companies WHERE company ='APPLE'";
+        ResultSet rst3 = statement.executeQuery(stt3);
+        while (rst3.next()){
+            System.out.println(rst3.getInt(1) + "---" + rst3.getString(2) + "---" + rst3.getInt(3));
+        }
+
+
         connection.close();
         statement.close();
         rst1.close();

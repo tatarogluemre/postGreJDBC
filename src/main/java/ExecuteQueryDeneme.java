@@ -3,12 +3,11 @@ import java.sql.*;
 public class ExecuteQueryDeneme {
     public static void main(String[] args) throws SQLException {
 
-        Connection connnection = JdbcUtils.connectToDb();
+        Connection connnection = JdbcUtils.connectToDb("localhost","jdbc","postgres","tatar1987");
         Statement statement =JdbcUtils.createStatement();
 
         //1. Örnek : Oluşturulmuş countries tablosunda region_id'si 1 olan country_name değerlerini çağırın
-
-        String st1 = "SELECT country_name FROM countries WHERE region_id=1";
+              String st1 = "SELECT country_name FROM countries WHERE region_id=1";
         boolean sql1 = statement.execute(st1);
         if(sql1){
             ResultSet rst1 = statement.executeQuery(st1);

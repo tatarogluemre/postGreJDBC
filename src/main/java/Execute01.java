@@ -24,9 +24,10 @@ public class Execute01 {
      //1.Örnek: "workers" adında bir table oluşturup "worker_id,worker_name, worker_salary" sütunlarını ekleyin.
 
        boolean sql1 = statement.execute("CREATE TABLE workers (worker_id VARCHAR(20), worker_name VARCHAR(20),worker_salary INT)");
+       statement.execute("INSERT INTO workers VALUES('123','EMRE',12000)");
        //false return eder çünkü data çağırmıyoruz.
        if(!sql1){
-           System.out.println("Tablo başarıyla eklendi");
+           System.out.println("Tablo ve kayıt başarıyla eklendi");
        }else {System.out.println("Tablo eklenemedi");}
 
     //2.Örnek : workers tablosuna workers_address sütunu ekleyiniz.
@@ -35,7 +36,7 @@ public class Execute01 {
             System.out.println("Sütun başarıyla eklendi");
         }else {System.out.println("Sütun eklenemedi");}
 
-     //3.Örnek: workers table siliniz
+//     //3.Örnek: workers table siliniz
         boolean sql3= statement.execute("DROP TABLE IF EXISTS workers");
         if(!sql3){
             System.out.println("Tablo başarıyla silindi");
